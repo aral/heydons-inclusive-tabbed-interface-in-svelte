@@ -4,6 +4,14 @@ This is a step-by-step study in converting [Heydon Pickering](https://heydonwork
 
 The project is built using [SvelteKit](https://kit.svelte.dev).
 
+## Steps
+
+Each state of the conversion is captured in a tag:
+
+  - [Step 1](https://github.com/aral/heydons-accessible-tabs-in-svelte/tree/step1): __Copy and paste.__ The code is formatted as a Svelte component. `:global()` attributes are added to the styles.
+
+  - [Step 2](https://github.com/aral/heydons-accessible-tabs-in-svelte/tree/step1): __DOM away with you.__ The DOM structure is split up into separate Svelte components, named according to ARIA role (TabList, Tab, TabPanel, etc.). It is still progressively enhanced and the behaviour is still controlled by the DOM-based global script.
+
 ## Developing
 
 Once you’ve installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
