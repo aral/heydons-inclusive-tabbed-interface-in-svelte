@@ -4,104 +4,104 @@
   import { TabbedInterface, TabList, Tab, TabPanel } from '$lib/index'
 
   onMount(() => {
-  // Get relevant elements and collections
-  const tabbed = document.querySelector('.tabbed');
-  const tablist = tabbed.querySelector('ul');
-  const tabs = tablist.querySelectorAll('a');
-  const panels = tabbed.querySelectorAll('[id^="section"]');
+//   // Get relevant elements and collections
+//   const tabbed = document.querySelector('.tabbed');
+//   const tablist = tabbed.querySelector('ul');
+//   const tabs = tablist.querySelectorAll('a');
+//   const panels = tabbed.querySelectorAll('[id^="section"]');
 
-  // The tab switching function
-  const switchTab = (oldTab, newTab) => {
-    newTab.focus();
-    // Make the active tab focusable by the user (Tab key)
-    newTab.removeAttribute('tabindex');
-    // Set the selected state
-    newTab.setAttribute('aria-selected', 'true');
-    oldTab.removeAttribute('aria-selected');
-    oldTab.setAttribute('tabindex', '-1');
-    // Get the indices of the new and old tabs to find the correct
-    // tab panels to show and hide
-    let index = Array.prototype.indexOf.call(tabs, newTab);
-    let oldIndex = Array.prototype.indexOf.call(tabs, oldTab);
-    panels[oldIndex].hidden = true;
-    panels[index].hidden = false;
-  }
+//   // The tab switching function
+//   const switchTab = (oldTab, newTab) => {
+//     newTab.focus();
+//     // Make the active tab focusable by the user (Tab key)
+//     newTab.removeAttribute('tabindex');
+//     // Set the selected state
+//     newTab.setAttribute('aria-selected', 'true');
+//     oldTab.removeAttribute('aria-selected');
+//     oldTab.setAttribute('tabindex', '-1');
+//     // Get the indices of the new and old tabs to find the correct
+//     // tab panels to show and hide
+//     let index = Array.prototype.indexOf.call(tabs, newTab);
+//     let oldIndex = Array.prototype.indexOf.call(tabs, oldTab);
+//     panels[oldIndex].hidden = true;
+//     panels[index].hidden = false;
+//   }
 
-  // Add the tablist role to the first <ul> in the .tabbed container
-  tablist.setAttribute('role', 'tablist');
+//   // Add the tablist role to the first <ul> in the .tabbed container
+//   tablist.setAttribute('role', 'tablist');
 
-  // Add semantics are remove user focusability for each tab
-  Array.prototype.forEach.call(tabs, (tab, i) => {
-    tab.setAttribute('role', 'tab');
-    tab.setAttribute('id', 'tab' + (i + 1));
-    tab.setAttribute('tabindex', '-1');
-    tab.parentNode.setAttribute('role', 'presentation');
+//   // Add semantics are remove user focusability for each tab
+//   Array.prototype.forEach.call(tabs, (tab, i) => {
+//     tab.setAttribute('role', 'tab');
+//     tab.setAttribute('id', 'tab' + (i + 1));
+//     tab.setAttribute('tabindex', '-1');
+//     tab.parentNode.setAttribute('role', 'presentation');
 
-    // Handle clicking of tabs for mouse users
-    tab.addEventListener('click', e => {
-      e.preventDefault();
-      let currentTab = tablist.querySelector('[aria-selected]');
-      if (e.currentTarget !== currentTab) {
-        switchTab(currentTab, e.currentTarget);
-      }
-    });
+//     // Handle clicking of tabs for mouse users
+//     tab.addEventListener('click', e => {
+//       e.preventDefault();
+//       let currentTab = tablist.querySelector('[aria-selected]');
+//       if (e.currentTarget !== currentTab) {
+//         switchTab(currentTab, e.currentTarget);
+//       }
+//     });
 
-    // Handle keydown events for keyboard users
-    tab.addEventListener('keydown', e => {
-      // Get the index of the current tab in the tabs node list
-      let index = Array.prototype.indexOf.call(tabs, e.currentTarget);
-      // Work out which key the user is pressing and
-      // Calculate the new tab's index where appropriate
-      let dir = e.which === 37 ? index - 1 : e.which === 39 ? index + 1 : e.which === 40 ? 'down' : null;
-      if (dir !== null) {
-        e.preventDefault();
-        // If the down key is pressed, move focus to the open panel,
-        // otherwise switch to the adjacent tab
-        dir === 'down' ? panels[i].focus() : tabs[dir] ? switchTab(e.currentTarget, tabs[dir]) : void 0;
-      }
-    });
-  });
+//     // Handle keydown events for keyboard users
+//     tab.addEventListener('keydown', e => {
+//       // Get the index of the current tab in the tabs node list
+//       let index = Array.prototype.indexOf.call(tabs, e.currentTarget);
+//       // Work out which key the user is pressing and
+//       // Calculate the new tab's index where appropriate
+//       let dir = e.which === 37 ? index - 1 : e.which === 39 ? index + 1 : e.which === 40 ? 'down' : null;
+//       if (dir !== null) {
+//         e.preventDefault();
+//         // If the down key is pressed, move focus to the open panel,
+//         // otherwise switch to the adjacent tab
+//         dir === 'down' ? panels[i].focus() : tabs[dir] ? switchTab(e.currentTarget, tabs[dir]) : void 0;
+//       }
+//     });
+//   });
 
-  // Add tab panel semantics and hide them all
-  Array.prototype.forEach.call(panels, (panel, i) => {
-    panel.setAttribute('role', 'tabpanel');
-    panel.setAttribute('tabindex', '-1');
-    let id = panel.getAttribute('id');
-    panel.setAttribute('aria-labelledby', tabs[i].id);
-    panel.hidden = true;
-  });
+//   // Add tab panel semantics and hide them all
+//   Array.prototype.forEach.call(panels, (panel, i) => {
+//     panel.setAttribute('role', 'tabpanel');
+//     panel.setAttribute('tabindex', '-1');
+//     let id = panel.getAttribute('id');
+//     panel.setAttribute('aria-labelledby', tabs[i].id);
+//     panel.hidden = true;
+//   });
 
-  // Initially activate the first tab and reveal the first tab panel
-  tabs[0].removeAttribute('tabindex');
-  tabs[0].setAttribute('aria-selected', 'true');
-  panels[0].hidden = false;
+//   // Initially activate the first tab and reveal the first tab panel
+//   tabs[0].removeAttribute('tabindex');
+//   tabs[0].setAttribute('aria-selected', 'true');
+//   panels[0].hidden = false;
 })
 </script>
 
 <TabbedInterface class="tabbed">
   <TabList>
-    <Tab link='section1'>Section 1</Tab>
-    <Tab link='section2'>Section 2</Tab>
-    <Tab link='section3'>Section 3</Tab>
-    <Tab link='section4'>Section 4</Tab>
+    <Tab>Section 1</Tab>
+    <Tab>Section 2</Tab>
+    <Tab>Section 3</Tab>
+    <Tab>Section 4</Tab>
   </TabList>
 
-  <TabPanel name='section1'>
+  <TabPanel>
     <h2>Section 1</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, tortor nec pharetra ultricies, ante erat imperdiet velit, nec laoreet enim lacus a velit. <a href="#">Nam luctus</a>, enim in interdum condimentum, nisl diam iaculis lorem, vel volutpat mi leo sit amet lectus. Praesent non odio bibendum magna bibendum accumsan.</p>
   </TabPanel>
 
-  <TabPanel name='section2'>
+  <TabPanel>
     <h2>Section 2</h2>
     <p>Nullam at diam nec arcu suscipit auctor non a erat. Sed et magna semper, eleifend magna non, facilisis nisl. Proin et est et lorem dictum finibus ut nec turpis. Aenean nisi tortor, euismod a mauris a, mattis scelerisque tortor. Sed dolor risus, varius a nibh id, condimentum lacinia est. In lacinia cursus odio a aliquam. Curabitur tortor magna, laoreet ut rhoncus at, sodales consequat tellus.</p>
   </TabPanel>
 
-  <TabPanel name='section3'>
+  <TabPanel>
     <h2>Section 3</h2>
     <p>Phasellus ac tristique orci. Nulla maximus <a href="">justo nec dignissim consequat</a>. Sed vehicula diam sit amet mi efficitur vehicula in in nisl. Aliquam erat volutpat. Suspendisse lorem turpis, accumsan consequat consectetur gravida, <a href="#">pellentesque ac ante</a>. Aliquam in commodo ligula, sit amet mollis neque. Vestibulum at facilisis massa.</p>
   </TabPanel>
 
-  <TabPanel name='section4'>
+  <TabPanel>
     <h2>Section 4</h2>
     <p>Nam luctus, enim in interdum condimentum, nisl diam iaculis lorem, vel volutpat mi leo sit amet lectus. Praesent non odio bibendum magna bibendum accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, tortor nec pharetra ultricies, ante erat imperdiet velit, nec laoreet enim lacus a velit. </p>
   </TabPanel>
