@@ -1,41 +1,55 @@
 <script>
   import { onMount, getContext } from 'svelte'
 
-  export let link
   let tab
-  let tabLink
-  let tabIndex
+  let link
+  let isActiveTab
 
   // Set initial roles (as rendered server-side) to empty strings,
   // which are inapplicable according to:
   // https://act-rules.github.io/rules/674b10#inapplicable-example-3
   let tabRole = ''
-  let tabLinkRole = ''
+  let linkRole = undefined
 
   // Get the current tab index. We will be have the next one.
   const lastTabIndex = getContext('lastTabIndex')
 
+  // Get the initial active tab index.
+  const activeTabIndex = getContext('activeTabIndex')
+
+  // Set our own tab index and ensure the id
+  // is calculated and rendered on the server so
+  // regular links work by default even if not
+  // progressively-enhanced.
+  let index = ++$lastTabIndex
+  let id = `tab${index}`
+
   onMount(() => {
     // Progressively-enhance the roles.
     tabRole = 'presentation'
-    tabLinkRole = 'tab'
-
-    // Set our own tab index.
-    tabIndex = ++$lastTabIndex
+    linkRole = 'tab'
   })
 
+  // Reactively set whether we’re the active tab or not.
+  $: isActiveTab = index === $activeTabIndex
+
   function tabClick () {
-    // TODO: This tab has been clicked.
+    if (index !== $activeTabIndex) {
+      $activeTabIndex = index
+      tab.focus()
+    }
   }
 </script>
 
 <li bind:this={tab} role={tabRole}>
   <a
-    id={`tab${tabIndex}`}
-    href={`#${link}`}
-    bind:this={tabLink}
+    {id}
+    href={`#section${index}`}
+    tabindex={isActiveTab ? undefined : -1}
+    ariaselected={isActiveTab}
+    role={linkRole}
+    bind:this={link}
     on:click|preventDefault={tabClick}
-    role={tabLinkRole}
   >
     <slot></slot>
   </a>
