@@ -12,6 +12,8 @@ Each state of the conversion is captured in a tag:
 
   - [Step 2](https://github.com/aral/heydons-accessible-tabs-in-svelte/tree/step1): __DOM away with you.__ The DOM structure is split up into separate Svelte components, named according to ARIA role (TabList, Tab, TabPanel, etc.). It is still progressively enhanced and the behaviour is still controlled by the DOM-based global script.
 
+  - Step 3 (WIP): __Context is everything.__ The code is split up and encapsulated within the various constituent components. To communicate, the components use the context and reactive stores.
+
 ## Developing
 
 Once you’ve installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
