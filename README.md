@@ -10,7 +10,7 @@ Each state of the conversion is captured in a tag:
 
   - [Step 1](https://github.com/aral/heydons-accessible-tabs-in-svelte/tree/step1): __Copy and paste.__ The code is formatted as a Svelte component. `:global()` attributes are added to the styles.
 
-  - [Step 2](https://github.com/aral/heydons-accessible-tabs-in-svelte/tree/step1): __DOM away with you.__ The DOM structure is split up into separate Svelte components, named according to ARIA role (TabList, Tab, TabPanel, etc.). It is still progressively enhanced and the behaviour is still controlled by the DOM-based global script.
+  - [Step 2](https://github.com/aral/heydons-accessible-tabs-in-svelte/tree/step2): __DOM away with you.__ The DOM structure is split up into separate Svelte components, named according to ARIA role (TabList, Tab, TabPanel, etc.). It is still progressively enhanced and the behaviour is still controlled by the DOM-based global script.
 
   - Step 3 (WIP): __Context is everything.__ The code is split up and encapsulated within the various constituent components. To communicate, the components use the context and reactive stores.
 
