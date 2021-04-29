@@ -1,5 +1,5 @@
 <script>
-  import { onMount, getContext } from 'svelte'
+  import { onMount, getContext, tick } from 'svelte'
 
   let tab
   let link
@@ -17,6 +17,9 @@
   // Get the initial active tab index.
   const activeTabIndex = getContext('activeTabIndex')
 
+  // Get the focused panel index.
+  const focusedTabPanelIndex = getContext('focusedTabPanelIndex')
+
   // Set our own tab index and ensure the id
   // is calculated and rendered on the server so
   // regular links work by default even if not
@@ -24,19 +27,44 @@
   let index = ++$lastTabIndex
   let id = `tab${index}`
 
+  let isMounted = false
   onMount(() => {
     // Progressively-enhance the roles.
     tabRole = 'presentation'
     linkRole = 'tab'
+    isMounted = true
   })
 
   // Reactively set whether we’re the active tab or not.
   $: isActiveTab = index === $activeTabIndex
 
-  function tabClick () {
+  $: if (isMounted && isActiveTab) {
+    console.log('Focus is on tab', index)
+    tab.focus()
+  }
+
+  function tabClick (event) {
     if (index !== $activeTabIndex) {
       $activeTabIndex = index
-      tab.focus()
+    }
+  }
+
+  function keyHandler(event) {
+    let direction =
+      /* left?  */ event.which === 37 && index !== 0 ? index - 1 :
+      /* right? */ event.which === 39 && index !== $lastTabIndex ? index + 1 :
+      /* down?  */ event.which === 40 ? 'down' : null
+    if (direction !== null) {
+      event.preventDefault()
+      // If the down key is pressed, move focus to the open panel,
+      // otherwise switch to the adjacent tab.
+      if (direction === 'down') {
+        console.log('focusing on panel for tab', index)
+        $focusedTabPanelIndex = index
+      } else {
+        console.log('navigating to tab', direction)
+        $activeTabIndex = direction
+      }
     }
   }
 </script>
@@ -49,6 +77,7 @@
     ariaselected={isActiveTab}
     role={linkRole}
     bind:this={link}
+    on:keydown={keyHandler}
     on:click|preventDefault={tabClick}
   >
     <slot></slot>
