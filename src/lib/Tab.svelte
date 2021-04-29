@@ -40,7 +40,7 @@
 
   $: if (isMounted && isActiveTab) {
     console.log('Focus is on tab', index)
-    tab.focus()
+    link.focus()
   }
 
   function tabClick (event) {

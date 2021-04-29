@@ -25,6 +25,11 @@
   }
 </script>
 
-<section {id} hidden={mounted && ($activeTabIndex !== index)} bind:this={section}>
+<section
+  {id}
+  hidden={mounted && ($activeTabIndex !== index)}
+  tabindex={mounted ? -1 : undefined}
+  aria-labelledby={mounted ? `tab${index}` : undefined}
+  bind:this={section}>
   <slot></slot>
 </section>
