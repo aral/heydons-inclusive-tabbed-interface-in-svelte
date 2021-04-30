@@ -41,4 +41,4 @@ Each state of the conversion is captured in a tag:
   - __Original code:__ Copyright ⓒ 2017-present Heydon Pickering
   - __Svelte port:__ Copyright ⓒ 2021-present Aral Balkan
 
-__License:__ TBA (probably ISC… just chatting to Heydon about it now).
+__License:__ [ISC](LICENSE)
