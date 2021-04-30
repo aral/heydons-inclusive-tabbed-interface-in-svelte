@@ -2,7 +2,7 @@
 
 [Live demo](https://ar.al/demo/svelte-inclusive-tabbed-interface/)
 
-This is a step-by-step study in converting [Heydon Pickering](https://heydonworks.com/)’s [inclusive tabbed interface example](https://inclusive-components.design/tabbed-interfaces/) (from his excellent [Inclusive Components](https://inclusive-components.design/)) to [Svelte](https://svelte.dev).
+This is a step-by-step study in converting [Heydon Pickering](https://heydonworks.com/)’s progressively-enhanced [inclusive tabbed interface example](https://inclusive-components.design/tabbed-interfaces/) (from his excellent [Inclusive Components](https://inclusive-components.design/)) to [Svelte](https://svelte.dev).
 
 The project is built using [SvelteKit](https://kit.svelte.dev).
 
