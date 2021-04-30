@@ -39,7 +39,6 @@
   $: isActiveTab = index === $activeTabIndex
 
   $: if (isMounted && isActiveTab) {
-    console.log('Focus is on tab', index)
     link.focus()
   }
 
@@ -78,7 +77,7 @@
     {id}
     href={`#section${index}`}
     tabindex={isActiveTab ? undefined : -1}
-    aria-selected={isActiveTab || undefined}
+    aria-selected={(isMounted && isActiveTab) || undefined}
     role={linkRole}
     bind:this={link}
     on:keydown={keyHandler}
