@@ -59,7 +59,11 @@
       // If the down key is pressed, move focus to the open panel,
       // otherwise switch to the adjacent tab.
       if (direction === 'down') {
-        console.log('focusing on panel for tab', index)
+        // Unset and set the tab panel index (in case it was
+        // the previously-focused panel also). TODO: this is rather
+        // hacky. Instead, we should separate the active tab and
+        // focused element concepts and manage them separately.
+        $focusedTabPanelIndex = -1
         $focusedTabPanelIndex = index
       } else {
         console.log('navigating to tab', direction)
