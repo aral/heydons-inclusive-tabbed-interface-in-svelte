@@ -1,6 +1,6 @@
-# Notes for the tutorial
+# Slots and events in Svelte (can’t currently be used together)
 
-We would normally have used events here but events do not work with slots in Svelte, so something like the following will not work (although it would be nice if it did):
+We would normally have used events in the [Tab component](https://github.com/aral/heydons-inclusive-tabbed-interface-in-svelte/blob/main/src/lib/TabbedInterface/Tab.svelte) and implemented controller logic in the top-level parent but [events do not work with slots in Svelte](https://github.com/sveltejs/sapper/issues/731), so something like the following will not work (although it would be nice if it did):
 
 ```html
 <script>

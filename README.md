@@ -22,7 +22,7 @@ Each state of the conversion is captured in a tag:
 
       The model is defined in the top-level [TabbedInterface component](https://github.com/aral/heydons-inclusive-tabbed-interface-in-svelte/blob/main/src/lib/TabbedInterface/TabbedInterface.svelte) and added to the component’s context as a store.
 
-      Normally, I would keep controller logic in parent components and have child components communicate with their parents using events. However, [you can’t currently do that if you use component composition with slots](https://github.com/sveltejs/sapper/issues/731) so most of the logic in the [Tab](https://github.com/aral/heydons-inclusive-tabbed-interface-in-svelte/blob/main/src/lib/TabbedInterface/Tab.svelte) component.
+      Normally, I would keep controller logic in parent components and have child components communicate with their parents using events. However, [you can’t currently do that if you use component composition with slots](https://github.com/sveltejs/sapper/issues/731) so most of the logic is implemented in the [Tab](https://github.com/aral/heydons-inclusive-tabbed-interface-in-svelte/blob/main/src/lib/TabbedInterface/Tab.svelte) component.
 
       Basically, we’re using reactive dependency injection of sorts to create a two-way communication system. You could do this via other means (e.g., having child components register themselves with their parents, etc., but those are just workarounds for the same limitations in Svelte and would likely end up far more verbose to implement). Given we can’t use events, this is probably the simplest thing that could possibly work in this instance.
 
