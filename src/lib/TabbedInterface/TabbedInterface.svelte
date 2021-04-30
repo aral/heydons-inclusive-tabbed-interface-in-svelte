@@ -1,5 +1,5 @@
 <script>
-  import { onMount, setContext } from 'svelte'
+  import { setContext } from 'svelte'
   import { writable } from 'svelte/store'
 
   const lastTabIndex = writable(-1)
