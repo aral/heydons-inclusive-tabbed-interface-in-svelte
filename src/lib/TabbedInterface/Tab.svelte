@@ -66,7 +66,7 @@
         $focusedTabPanelIndex = -1
         $focusedTabPanelIndex = index
       } else {
-        console.log('navigating to tab', direction)
+        // Navigate to an adjacent tab.
         $activeTabIndex = direction
       }
     }

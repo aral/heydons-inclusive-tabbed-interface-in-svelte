@@ -1,7 +1,8 @@
 <script>
   import { onMount } from 'svelte'
+  import '$lib/index.css'
 
-  import { TabbedInterface, TabList, Tab, TabPanel } from '$lib/index'
+  import { TabbedInterface, TabList, Tab, TabPanel } from '$lib/TabbedInterface'
 
   onMount(() => {
 //   // Get relevant elements and collections
@@ -108,14 +109,6 @@
 </TabbedInterface>
 
 <style>
-  :global(body) {
-  max-width: 40rem;
-  padding: 0 1rem;
-  font-size: 125%;
-  line-height: 1.5;
-  margin: 1.5rem auto;
-  font-family: Arial, sans-serif;
-}
 
 :global(*) {
   color: inherit;
