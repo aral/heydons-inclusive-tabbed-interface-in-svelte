@@ -1,7 +1,6 @@
 <script>
   import { onMount } from 'svelte'
 
-  let tabList
   let role = undefined
 
   onMount(() => {
@@ -11,7 +10,7 @@
   })
 </script>
 
-<ul {role} bind:this={tabList}>
+<ul {role}>
   <slot></slot>
   <div id='force'></div>
 </ul>
