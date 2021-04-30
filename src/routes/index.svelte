@@ -115,27 +115,6 @@
   margin: 0;
 }
 
-:global([role="tablist"]) {
-  padding: 0;
-}
-
-:global([role="tablist"] li), :global([role="tablist"] a) {
-  display: inline-block;
-}
-
-:global([role="tablist"] a) {
-  text-decoration: none;
-  padding: 0.5rem 1em;
-}
-
-:global([role="tablist"] [aria-selected]) {
-  border: 2px solid;
-  background: #fff;
-  border-bottom: 0;
-  position: relative;
-  top: 2px;
-}
-
 :global([role="tabpanel"]) {
   border: 2px solid;
   padding: 1.5rem;

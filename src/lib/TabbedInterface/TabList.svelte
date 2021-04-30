@@ -13,3 +13,26 @@
 <ul bind:this={tabList}>
   <slot></slot>
 </ul>
+
+<style>
+  [role="tablist"] {
+    padding: 0;
+  }
+
+  [role="tablist"] li, [role="tablist"] a {
+    display: inline-block;
+  }
+
+  [role="tablist"] a {
+    text-decoration: none;
+    padding: 0.5rem 1em;
+  }
+
+  [role="tablist"] [aria-selected] {
+    border: 2px solid;
+    background: #fff;
+    border-bottom: 0;
+    position: relative;
+    top: 2px;
+  }
+</style>
