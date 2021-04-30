@@ -36,7 +36,7 @@ Each state of the conversion is captured in a tag:
 
 ## Copyright and License
 
-__Original code:__ Copyright ⓒ 2017-present Heydon Pickering
-__Svelte port:__ Copyright ⓒ 2021-present Aral Balkan
+  - __Original code:__ Copyright ⓒ 2017-present Heydon Pickering
+  - __Svelte port:__ Copyright ⓒ 2021-present Aral Balkan
 
-License: TBA (probably ISC… just chatting to Heydon about it now).
+__License:__ TBA (probably ISC… just chatting to Heydon about it now).
