@@ -3,7 +3,7 @@
   import { TabbedInterface, TabList, Tab, TabPanel } from '$lib/TabbedInterface'
 </script>
 
-<TabbedInterface class="tabbed">
+<TabbedInterface>
   <TabList>
     <Tab>Section 1</Tab>
     <Tab>Section 2</Tab>
