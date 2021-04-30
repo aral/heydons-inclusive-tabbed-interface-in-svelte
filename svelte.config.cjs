@@ -5,6 +5,11 @@ module.exports = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
-		adapter: static()
+		adapter: static(),
+
+		// This is where the demo is deployed to on https://ar.al
+		paths: {
+      base: '/demo/svelte-inclusive-tabbed-interface/'
+    }
 	}
 }
