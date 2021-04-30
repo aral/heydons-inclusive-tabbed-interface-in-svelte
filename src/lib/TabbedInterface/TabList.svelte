@@ -5,8 +5,8 @@
   let role = undefined
 
   onMount(() => {
-    // We are doing this here instead of in the DOM
-    // as the component is progressively-enhanced.
+    // We are setting the ARIA role dynamically, here, instead of
+    // statically in the DOM as the component is progressively-enhanced.
     role = 'tablist'
   })
 </script>
