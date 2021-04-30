@@ -46,4 +46,10 @@
   :global([role="tabpanel"] * + *) {
     margin-top: 0.75rem;
   }
+
+  @media (max-width: 550px) {
+    :global([role="tabpanel"]) {
+      border-top: 0;
+    }
+  }
 </style>

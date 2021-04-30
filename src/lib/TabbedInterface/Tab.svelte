@@ -1,5 +1,5 @@
 <script>
-  import { onMount, getContext, tick } from 'svelte'
+  import { onMount, getContext } from 'svelte'
 
   let tab
   let link
@@ -95,5 +95,15 @@
     border-bottom: 0;
     position: relative;
     top: 2px;
+  }
+
+  @media (max-width: 550px) {
+    :global([role="tablist"] [aria-selected]) {
+      position: static;
+    }
+
+    :global([role="tablist"] [aria-selected]::after) {
+      content: '\0020⬅';
+    }
   }
 </style>

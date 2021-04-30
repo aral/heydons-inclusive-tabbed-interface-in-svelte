@@ -38,4 +38,19 @@
     text-decoration: none;
     padding: 0.5rem 1em;
   }
+
+  @media (max-width: 550px) {
+    :global([role="tablist"] li), :global([role="tablist"] a) {
+      display: block;
+      position: static;
+    }
+
+    :global([role="tablist"] a) {
+      border: 2px solid #222 !important;
+    }
+
+    :global([role="tablist"] li + li a) {
+      border-top: 0 !important;
+    }
+  }
 </style>
