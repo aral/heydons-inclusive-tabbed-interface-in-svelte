@@ -4,7 +4,11 @@ We would normally have used events in the [Tab component](https://github.com/ara
 
 ```html
 <script>
+  import { createEventDispatcher } from 'svelte'
+  const dispatch = createEventDispatcher()
+
   // …
+
   function keyHandler(event) {
     let preventDefault = true
     switch (event.which) {
@@ -26,13 +30,7 @@ We would normally have used events in the [Tab component](https://github.com/ara
 
 <li bind:this={tab} role={tabRole}>
   <a
-    {id}
-    href={`#section${index}`}
-    tabindex={isActiveTab ? undefined : -1}
-    ariaselected={isActiveTab}
-    role={linkRole}
-    bind:this={link}
-    on:click|preventDefault={tabClick}
+    …
     on:keydown={keyHandler}
   >
     <slot></slot>
