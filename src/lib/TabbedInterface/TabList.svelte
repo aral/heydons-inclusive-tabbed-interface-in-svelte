@@ -12,7 +12,6 @@
 
 <ul {role}>
   <slot></slot>
-  <div id='force'></div>
 </ul>
 
 <style>
