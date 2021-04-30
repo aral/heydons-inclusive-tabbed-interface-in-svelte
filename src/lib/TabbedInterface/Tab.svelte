@@ -78,7 +78,7 @@
     {id}
     href={`#section${index}`}
     tabindex={isActiveTab ? undefined : -1}
-    ariaselected={isActiveTab}
+    aria-selected={isActiveTab || undefined}
     role={linkRole}
     bind:this={link}
     on:keydown={keyHandler}
@@ -87,3 +87,13 @@
     <slot></slot>
   </a>
 </li>
+
+<style>
+  :global([aria-selected]) {
+    border: 2px solid;
+    background: #fff;
+    border-bottom: 0;
+    position: relative;
+    top: 2px;
+  }
+</style>

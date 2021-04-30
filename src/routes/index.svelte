@@ -110,24 +110,9 @@
 
 <style>
 
-:global(*) {
-  color: inherit;
-  margin: 0;
-}
 
-:global([role="tabpanel"]) {
-  border: 2px solid;
-  padding: 1.5rem;
-}
 
-:global([role="tabpanel"] * + *) {
-  margin-top: 0.75rem;
-}
 
-:global(*:focus) {
-  outline: none;
-  box-shadow: inset 0 0 0 4px lightBlue;
-}
 
 @media (max-width: 550px) {
   :global([role="tablist"] li), :global([role="tablist"] a) {

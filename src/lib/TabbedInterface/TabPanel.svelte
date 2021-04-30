@@ -9,6 +9,7 @@
   // The id is rendered on the server.
   let index = ++$lastTabPanelIndex
   let id = `section${index}`
+  let role = undefined
 
   // We keep track of the mounted state so that the full
   // DOM is rendered on the server-side and progressively-enhanced
@@ -17,6 +18,7 @@
 
   onMount(() => {
     mounted = true
+    role = 'tabpanel'
   })
 
   $: if ($focusedTabPanelIndex === index) {
@@ -27,9 +29,21 @@
 
 <section
   {id}
+  {role}
   hidden={mounted && ($activeTabIndex !== index)}
   tabindex={mounted ? -1 : undefined}
   aria-labelledby={mounted ? `tab${index}` : undefined}
   bind:this={section}>
   <slot></slot>
 </section>
+
+<style>
+  :global([role="tabpanel"]) {
+    border: 2px solid;
+    padding: 1.5rem;
+  }
+
+  :global([role="tabpanel"] * + *) {
+    margin-top: 0.75rem;
+  }
+</style>

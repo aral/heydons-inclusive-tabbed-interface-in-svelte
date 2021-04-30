@@ -38,12 +38,4 @@
     text-decoration: none;
     padding: 0.5rem 1em;
   }
-
-  :global([role="tablist"] [aria-selected]) {
-    border: 2px solid;
-    background: #fff;
-    border-bottom: 0;
-    position: relative;
-    top: 2px;
-  }
 </style>

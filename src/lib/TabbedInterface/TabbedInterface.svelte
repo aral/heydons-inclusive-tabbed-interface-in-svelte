@@ -24,3 +24,15 @@
 <div class='tabbed'>
   <slot></slot>
 </div>
+
+<style>
+  :global(*) {
+    color: inherit;
+    margin: 0;
+  }
+
+  :global(*:focus) {
+    outline: none;
+    box-shadow: inset 0 0 0 4px lightBlue;
+  }
+</style>
